@@ -1,42 +1,66 @@
-# sv
+# Tablerune
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Tablerune is a comprehensive tool for Tabletop RPG (TTRPG) players and Dungeon Masters (DMs). It aims to streamline the experience of managing characters and campaigns, allowing everyone to focus on the story.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+### For Players
+- **Character Management**: Create and maintain detailed character profiles.
+- **Stat Tracking**: Keep track of health, items, and resources in real-time.
+- **Narrative Support**: Document backstories and record key decisions made throughout the journey.
 
-```sh
-# create a new project
-npx sv create my-app
+### For Dungeon Masters
+- **Campaign Management**: Create and organize multiple campaigns effortlessly.
+- **Player Integration**: Invite players to join campaigns and manage their involvement.
+- **Live Tracking**: Monitor player stats and progress to ensure a smooth game flow.
+- **Interactive Maps (Upcoming)**: A future feature to create and manage tactical maps for encounters.
+
+## Tech Stack
+
+- **Framework**: [Svelte 5](https://svelte.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Package Manager**: [pnpm](https://pnpm.io/)
+- **Testing**: [Vitest](https://vitest.dev/) (Unit/Component) & [Playwright](https://playwright.dev/) (E2E)
+
+## Getting Started
+
+### Prerequisites
+
+Ensure you have [pnpm](https://pnpm.io/installation) installed.
+
+### Installation
+
+```bash
+pnpm install
 ```
 
-To recreate this project with the same configuration:
+### Development
 
-```sh
-# recreate this project
-pnpm dlx sv@0.15.2 create --template minimal --types ts --add prettier eslint vitest="usages:unit,component" playwright tailwindcss="plugins:typography,forms" mcp="ide:claude-code+setup:remote" --install pnpm tablerune
+Start the development server:
+
+```bash
+pnpm dev
 ```
 
-## Developing
+### Building
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Build for production:
 
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```bash
+pnpm build
 ```
 
-## Building
+Preview the production build:
 
-To create a production version of your app:
-
-```sh
-npm run build
+```bash
+pnpm preview
 ```
 
-You can preview the production build with `npm run preview`.
+## Project Structure
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- `src/lib`: Core logic and reusable components.
+- `src/routes`: SvelteKit pages and layouts.
+- `static`: Static assets like images and fonts.
+- `playwright.config.ts`: E2E testing configuration.
+- `vitest.config.ts`: Unit and component testing configuration.
