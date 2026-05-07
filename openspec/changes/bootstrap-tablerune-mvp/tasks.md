@@ -1,14 +1,14 @@
 ## 1. Foundation and Platform Setup
 
-- [ ] 1.1 Configure Supabase project settings, local environment variables, and Cloudflare deployment bindings for auth, database, and storage access.
-- [ ] 1.2 Define initial database migrations for profiles, campaigns, memberships, characters, inventory items, decision logs, and maps.
-- [ ] 1.3 Implement baseline RLS and storage policies tied to campaign membership and DM/player role checks.
+- [x] 1.1 Configure Supabase project settings, local environment variables, and Cloudflare deployment bindings for auth, database, and storage access.
+- [x] 1.2 Define initial database migrations for profiles, campaigns, memberships, characters, inventory items, decision logs, and maps.
+- [x] 1.3 Implement baseline RLS and storage policies tied to campaign membership and DM/player role checks.
 
 ## 2. Auth and Profile Flows
 
-- [ ] 2.1 Implement SvelteKit authentication bootstrap using Supabase session handling for protected routes.
-- [ ] 2.2 Implement profile creation on first login and profile retrieval for app-shell personalization.
-- [ ] 2.3 Add role-aware navigation guards so DM-only and player-only surfaces are enforced.
+- [x] 2.1 Implement SvelteKit authentication bootstrap using Supabase session handling for protected routes.
+- [x] 2.2 Implement profile creation on first login and profile retrieval for app-shell personalization.
+- [x] 2.3 Add role-aware navigation guards so DM-only and player-only surfaces are enforced.
 
 ## 3. Campaign and Membership Management
 

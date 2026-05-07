@@ -5,11 +5,13 @@ Tablerune is a comprehensive tool for Tabletop RPG (TTRPG) players and Dungeon M
 ## Features
 
 ### For Players
+
 - **Character Management**: Create and maintain detailed character profiles.
 - **Stat Tracking**: Keep track of health, items, and resources in real-time.
 - **Narrative Support**: Document backstories and record key decisions made throughout the journey.
 
 ### For Dungeon Masters
+
 - **Campaign Management**: Create and organize multiple campaigns effortlessly.
 - **Player Integration**: Invite players to join campaigns and manage their involvement.
 - **Live Tracking**: Monitor player stats and progress to ensure a smooth game flow.
@@ -33,6 +35,28 @@ Ensure you have [pnpm](https://pnpm.io/installation) installed.
 
 ```bash
 pnpm install
+```
+
+### Environment
+
+Create a local env file:
+
+```bash
+cp .env.example .env.local
+```
+
+Required variables:
+
+```bash
+PUBLIC_SUPABASE_URL=https://<project-ref>.supabase.co
+PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_<key>
+```
+
+### Database setup (Supabase CLI)
+
+```bash
+pnpm dlx supabase start
+pnpm dlx supabase db reset
 ```
 
 ### Development
