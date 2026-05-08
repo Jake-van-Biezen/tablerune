@@ -5,6 +5,7 @@ const authRoutes = ['/auth/sign-in', '/auth/confirm'];
 const protectedPrefixes = ['/app', '/dm', '/player'];
 
 export const handle: Handle = async ({ event, resolve }) => {
+	event.locals.requestId = crypto.randomUUID();
 	const supabase = createServerSupabaseClient(event);
 	event.locals.supabase = supabase;
 
@@ -65,5 +66,17 @@ export const handle: Handle = async ({ event, resolve }) => {
 		throw redirect(303, '/app');
 	}
 
-	return resolve(event);
+	try {
+		const response = await resolve(event);
+		response.headers.set('x-tablerune-request-id', event.locals.requestId);
+		return response;
+	} catch (err) {
+		console.error('[tablerune:request-error]', {
+			requestId: event.locals.requestId,
+			path,
+			method: event.request.method,
+			error: err instanceof Error ? err.message : String(err)
+		});
+		throw err;
+	}
 };

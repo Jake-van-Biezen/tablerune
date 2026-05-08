@@ -1,86 +1,52 @@
 <script lang="ts">
+	import { Button } from '$lib/components/ui/button';
+	import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
+	import { Input } from '$lib/components/ui/input';
+	import { Label } from '$lib/components/ui/label';
+
 	let { data, form } = $props();
 </script>
 
 <section class="grid gap-6 md:grid-cols-2">
-	<form
-		method="POST"
-		action="?/signIn"
-		class="space-y-3 rounded border border-zinc-800 bg-zinc-900 p-6"
-	>
-		<h1 class="text-2xl font-semibold">Sign in</h1>
-		<input type="hidden" name="next" value={data.next} />
-		<div class="space-y-1">
-			<label class="text-sm text-zinc-300" for="sign-in-email">Email</label>
-			<input
-				id="sign-in-email"
-				name="email"
-				type="email"
-				required
-				class="w-full rounded border border-zinc-700 bg-zinc-950 px-3 py-2"
-			/>
-		</div>
-		<div class="space-y-1">
-			<label class="text-sm text-zinc-300" for="sign-in-password">Password</label>
-			<input
-				id="sign-in-password"
-				name="password"
-				type="password"
-				required
-				class="w-full rounded border border-zinc-700 bg-zinc-950 px-3 py-2"
-			/>
-		</div>
-		<button
-			type="submit"
-			class="cursor-pointer rounded bg-emerald-500 px-4 py-2 font-medium text-zinc-950"
-		>
-			Sign in
-		</button>
-	</form>
+	<Card>
+		<CardHeader><CardTitle>Sign in</CardTitle></CardHeader>
+		<CardContent>
+			<form method="POST" action="?/signIn" class="space-y-3">
+				<input type="hidden" name="next" value={data.next} />
+				<div class="space-y-1">
+					<Label for="sign-in-email">Email</Label>
+					<Input id="sign-in-email" name="email" type="email" required />
+				</div>
+				<div class="space-y-1">
+					<Label for="sign-in-password">Password</Label>
+					<Input id="sign-in-password" name="password" type="password" required />
+				</div>
+				<Button type="submit">Sign in</Button>
+			</form>
+		</CardContent>
+	</Card>
 
-	<form
-		method="POST"
-		action="?/signUp"
-		class="space-y-3 rounded border border-zinc-800 bg-zinc-900 p-6"
-	>
-		<h2 class="text-2xl font-semibold">Create account</h2>
-		<input type="hidden" name="next" value={data.next} />
-		<div class="space-y-1">
-			<label class="text-sm text-zinc-300" for="sign-up-display-name">Display name</label>
-			<input
-				id="sign-up-display-name"
-				name="display_name"
-				type="text"
-				class="w-full rounded border border-zinc-700 bg-zinc-950 px-3 py-2"
-			/>
-		</div>
-		<div class="space-y-1">
-			<label class="text-sm text-zinc-300" for="sign-up-email">Email</label>
-			<input
-				id="sign-up-email"
-				name="email"
-				type="email"
-				required
-				class="w-full rounded border border-zinc-700 bg-zinc-950 px-3 py-2"
-			/>
-		</div>
-		<div class="space-y-1">
-			<label class="text-sm text-zinc-300" for="sign-up-password">Password</label>
-			<input
-				id="sign-up-password"
-				name="password"
-				type="password"
-				required
-				class="w-full rounded border border-zinc-700 bg-zinc-950 px-3 py-2"
-			/>
-		</div>
-		<button
-			type="submit"
-			class="cursor-pointer rounded bg-zinc-100 px-4 py-2 font-medium text-zinc-950"
-		>
-			Sign up
-		</button>
-	</form>
+	<Card>
+		<CardHeader><CardTitle>Create account</CardTitle></CardHeader>
+		<CardContent>
+			<form method="POST" action="?/signUp" class="space-y-3">
+				<input type="hidden" name="next" value={data.next} />
+				<div class="space-y-1">
+					<Label for="sign-up-display-name">Display name</Label>
+					<Input id="sign-up-display-name" name="display_name" type="text" />
+				</div>
+				<div class="space-y-1">
+					<Label for="sign-up-email">Email</Label>
+					<Input id="sign-up-email" name="email" type="email" required />
+				</div>
+				<div class="space-y-1">
+					<Label for="sign-up-password">Password</Label>
+					<Input id="sign-up-password" name="password" type="password" required />
+				</div>
+				<Button type="submit" variant="secondary">Sign up</Button>
+			</form>
+		</CardContent>
+	</Card>
 </section>
 
 {#if form?.message}

@@ -16,6 +16,7 @@ declare global {
 			session: Session | null;
 			user: User | null;
 			profile: Database['public']['Tables']['profiles']['Row'] | null;
+			requestId: string;
 		}
 
 		interface PageData {
